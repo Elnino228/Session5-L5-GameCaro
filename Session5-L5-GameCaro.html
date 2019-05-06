@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h3>Caro game simple</h3>
+<p id="caroGame" />
+<input type="button" value="Change value" onclick="changeValue()"/>
+<script>
+    const max=5;
+    let Rmax=max;
+    let Lmax=max;
+    let matrix=[];
+    let data='';
+    for (let row=0;row<Rmax;row++) {
+        matrix[row]=[0,0,0,0,0];
+
+    }
+    for (let row=0;row<Rmax;row++){
+        data+='<br/>';
+        for (let column=0;column<Lmax;column++) {
+            data+=matrix[row][column]+'&nbsp;&nbsp;';
+        }
+    }
+    data+='<br/><br/><input type="button" value="Change Value" onclick="changeValue()">';
+    document.getElementById('caroGame').innerHTML=data;
+    function changeValue() {
+        let indexX=Number(prompt('X='))-1;
+        let indexY=Number(prompt('Y='))-1;
+        data='';
+        matrix[indexX][indexY]='x';
+        for (let row=0;row<Rmax;row++) {
+            data+='<br/>';
+            for (let column=0;column<Lmax;column++) {
+                data+=matrix[row][column]+'&nbsp;&nbsp;&nbsp;&nbsp';
+            }
+        }
+        data+='<br/><br/><input type="button" value="Change Value" onclick="changeValue()">';
+        document.getElementById('caroGame').innerHTML='<hr/>'+data;
+    }
+</script>
+</body>
+</html>
